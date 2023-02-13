@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Jogo da forca</title>
     <style>
 body{
   font-family: 'Courier New', Courier, monospace;
@@ -60,44 +61,44 @@ button:hover {
     </div>
     <h1><center><a href="index.html">Voltar para o menu</a></center></h1>
     <script>
-      const word = "teamomari";
-const wordArray = word.split("");
-const incorrectElement = document.getElementById("incorrect");
-const guessElement = document.getElementById("guess");
-const wordElement = document.getElementById("word");
-let incorrect = [];
-let correct = [];
+    const word = "bruxelas";
+    const wordArray = word.split("");
+    const incorrectElement = document.getElementById("incorrect");
+    const guessElement = document.getElementById("guess");
+    const wordElement = document.getElementById("word");
+    let incorrect = [];
+    let correct = [];
 
-wordArray.forEach(function() {
-  correct.push("_");
-});
-wordElement.innerHTML = correct.join(" ");
-
-document.getElementById("submit").addEventListener("click", function() {
-  const letter = document.getElementById("letter").value;
-
-  if (word.indexOf(letter) === -1) {
-    incorrect.push(letter);
-    incorrectElement.innerHTML = "Incorrect: " + incorrect.join(" ");
-  } else {
-    for (let i = 0; i < wordArray.length; i++) {
-      if (wordArray[i] === letter) {
-        correct[i] = letter;
-      }
-    }
+    wordArray.forEach(function() {
+      correct.push("_");
+    });
     wordElement.innerHTML = correct.join(" ");
-  }
 
-  if (correct.join("") === word) {
-    guessElement.innerHTML = "You win!";
-    guessElement.style.color = "green";
-  }
-
-  if (incorrect.length === 6) {
-    guessElement.innerHTML = "You lose.";
-    guessElement.style.color = "red";
-  }
-});
+    document.getElementById("submit").addEventListener("click", function() {
+      const letter = document.getElementById("letter").value;
+    
+      if (word.indexOf(letter) === -1) {
+        incorrect.push(letter);
+        incorrectElement.innerHTML = "Incorrect: " + incorrect.join(" ");
+      } else {
+        for (let i = 0; i < wordArray.length; i++) {
+          if (wordArray[i] === letter) {
+            correct[i] = letter;
+          }
+        }
+        wordElement.innerHTML = correct.join(" ");
+      }
+    
+      if (correct.join("") === word) {
+        guessElement.innerHTML = "You win!";
+        guessElement.style.color = "green";
+      }
+    
+      if (incorrect.length === 6) {
+        guessElement.innerHTML = "You lose.";
+        guessElement.style.color = "red";
+      }
+    });
     </script>
   </body>
 </html>
