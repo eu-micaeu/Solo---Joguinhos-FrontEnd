@@ -1,12 +1,12 @@
 body {
   font-family:'Courier New', Courier, monospace;
-  background-color: #7d028d;
+  background-color: #005f08;
   margin: 0;
 }
 
 .title {
   text-align: center;
-  color: #e600ff;
+  color: #00ff44;
   font-size: 4rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   width: 200px;
@@ -19,7 +19,7 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  background-color: #e600ff;
+  background-color: #00ff44;
   border-radius: 5px;
 }
 
@@ -31,10 +31,11 @@ body {
 .menu a {
   display: block;
   padding: 10px 20px;
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
+  font-size: 25px;
 }
 
 .menu a:hover {
-  background-color: #7d028d;
+  background-color: #21ad57;
 }
