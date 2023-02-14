@@ -3,55 +3,8 @@
   <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
      crossorigin="anonymous"></script>
-    <title>Jogo da forca</title>
-    <style>
-body{
-  font-family: 'Courier New', Courier, monospace;
-}
-#container {
-  width: 800px;
-  margin: 50px auto;
-  text-align: center;
-}
-
-#word {
-  font-size: 36px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-}
-
-#incorrect {
-  color: red;
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-#guess {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-#letter {
-  font-size: 36px;
-  width: 50px;
-  text-align: center;
-  margin-right: 20px;
-}
-
-button {
-  font-size: 24px;
-  padding: 5px 20px;
-  border-radius: 5px;
-  background-color: lightgray;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: rgb(168, 33, 33);
-}
-    </style>
+    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="css/style_forca.css">
   </head>
   <body>
     <div id="container">
@@ -61,46 +14,7 @@ button:hover {
       <input type="text" id="letter" maxlength="1">
       <button id="submit">Enviar</button>
     </div>
-    <h1><center><a href="index.html">Voltar para o menu</a></center></h1>
-    <script>
-    const word = "bruxelas";
-    const wordArray = word.split("");
-    const incorrectElement = document.getElementById("incorrect");
-    const guessElement = document.getElementById("guess");
-    const wordElement = document.getElementById("word");
-    let incorrect = [];
-    let correct = [];
-
-    wordArray.forEach(function() {
-      correct.push("_");
-    });
-    wordElement.innerHTML = correct.join(" ");
-
-    document.getElementById("submit").addEventListener("click", function() {
-      const letter = document.getElementById("letter").value;
-    
-      if (word.indexOf(letter) === -1) {
-        incorrect.push(letter);
-        incorrectElement.innerHTML = "Incorrect: " + incorrect.join(" ");
-      } else {
-        for (let i = 0; i < wordArray.length; i++) {
-          if (wordArray[i] === letter) {
-            correct[i] = letter;
-          }
-        }
-        wordElement.innerHTML = correct.join(" ");
-      }
-    
-      if (correct.join("") === word) {
-        guessElement.innerHTML = "You win!";
-        guessElement.style.color = "green";
-      }
-    
-      if (incorrect.length === 6) {
-        guessElement.innerHTML = "You lose.";
-        guessElement.style.color = "red";
-      }
-    });
-    </script>
+    <h1 id="voltar"><a href="index.html">MENU</a></h1>
+    <script src="js/js_forca.js"></script>
   </body>
 </html>

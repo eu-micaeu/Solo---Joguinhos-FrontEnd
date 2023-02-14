@@ -1,0 +1,66 @@
+:root {
+    --font-family: 'Courier New', Courier, monospace;
+    --color-text: #333;
+    --color-accent: rgb(103, 103, 103);
+    --size-base: 16px;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+  
+  #container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+  }
+  
+  #word {
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.625rem;
+  }
+  
+  #incorrect {
+    color: red;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+  }
+  
+  #guess {
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  #letter {
+    font-size: 2.25rem;
+    width: 3.125rem;
+    text-align: center;
+    margin-right: 1.25rem;
+  }
+  
+  button {
+    font-size: 1.125rem;
+    padding: 0.3125rem 1.25rem;
+    border-radius: 0.3125rem;
+    background-color: lightgray;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: var(--color-accent);
+  }
+
+  h1#voltar {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  h1#voltar a {
+    text-decoration: none;
+  }
