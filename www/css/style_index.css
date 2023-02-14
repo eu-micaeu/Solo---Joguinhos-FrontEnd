@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family:'Courier New', Courier, monospace;
   background-color: #7d028d;
   margin: 0;
 }
@@ -7,27 +7,32 @@ body {
 .title {
   text-align: center;
   color: #e600ff;
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px;
 }
-
 .menu {
   list-style: none;
-  margin: 0;
+  margin: 50px;
   padding: 0;
   display: flex;
   justify-content: center;
+  background-color: #e600ff;
+  border-radius: 5px;
 }
 
 .menu li {
   margin: 0 10px;
+
 }
 
 .menu a {
   display: block;
   padding: 10px 20px;
-  background-color: #e600ff;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
 }
 
 .menu a:hover {
