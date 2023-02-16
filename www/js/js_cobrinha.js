@@ -27,79 +27,120 @@ function drawApple() {
   ctx.fillRect(apple.x * gridSize, apple.y * gridSize, gridSize, gridSize);
 }
 
-// Função para mover a cobra
 function moveSnake() {
+  // Verifica se a cobra está tentando se mover na direção oposta da sua direção atual
+  if (dx === -snake[0].dx || dy === -snake[0].dy) {
+    dx = snake[0].dx;
+    dy = snake[0].dy;
+  }
   // Cabeça da cobra é definida como sua primeira posição mais dx e dy
   const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+  // Verifica se a cabeça da cobra está fora dos limites da grade
+  if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+    // Se a cobra estiver fora dos limites, reinicia o jogo
+    alert("Game over! Your score was " + score + ".");
+    location.reload();
+  }
   snake.unshift(head);
   // Se a cabeça da cobra encontrar uma maçã, aumenta a pontuação e gera uma nova maçã
   if (head.x === apple.x && head.y === apple.y) {
-    score++;
-    scoreDisplay.textContent = "Pontuação: " + score;
+    score += 1;
+    scoreDisplay.textContent = "Pontos: " + score;
     generateApple();
   } else {
     snake.pop();
   }
-}
-
-// Função para gerar uma nova maçã
-function generateApple() {
-  apple.x = Math.floor(Math.random() * tileCount);
-  apple.y = Math.floor(Math.random() * tileCount);
-  // Verifica se a maçã foi gerada sobre a cobra
-  snake.forEach(segment => {
-    if (segment.x === apple.x && segment.y === apple.y) {
-      generateApple();
-    }
-  });
-}
-
-
-function checkCollision() {
-  if (snake[0].x < 0 || snake[0].x >= tileCount || snake[0].y < 0 || snake[0].y >= tileCount) {
-    return true;
-  }
+  
+  // Verifica se a cabeça da cobra colidiu com alguma parte do seu corpo
   for (let i = 1; i < snake.length; i++) {
     if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
-      return true;
+      alert("Game over! Your score was " + score + ".");
+      location.reload();
     }
   }
-  return false;
 }
 
-function main() {
-  if (checkCollision()) {
-    alert("Fim de jogo!");
-    location.reload();
-    return;
+
+// Função para gerar uma nova maçã em uma posição aleatória na grade
+function generateApple() {
+  apple = {
+    x: Math.floor(Math.random() * tileCount),
+    y: Math.floor(Math.random() * tileCount)
+  };
+  // Garante que a maçã não apareça em uma posição que já esteja ocupada pela cobra
+  if (snake.some(segment => segment.x === apple.x && segment.y === apple.y)) {
+    generateApple();
   }
+}
+
+function gameLoop() {
+  // Limpa o canvas para redesenhar tudo na nova posição
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  moveSnake();
+  drawApple();
+  drawSnake();
+
+  // Verifica se a cobra colidiu com uma parede ou com seu próprio corpo
+  if (snake[0].x < 0 || snake[0].x >= tileCount || snake[0].y < 0 || snake[0].y >= tileCount || snake.slice(1).some(segment => segment.x === snake[0].x && segment.y === snake[0].y)) {
+    // Se a cobra colidiu, reinicia o jogo
+    alert("Game over! Your score was " + score + ".");
+    location.reload();
+  }
+
+  // Chama a função novamente no próximo quadro
+  requestAnimationFrame(gameLoop)
+}
+
+// Função para gerar uma nova maçã em uma posição aleatória
+function generateApple() {
+  apple = {
+    x: Math.floor(Math.random() * tileCount),
+    y: Math.floor(Math.random() * tileCount)
+  };
+  // Verifica se a maçã não apareceu em cima da cobra e gera outra maçã caso contrário
+  if (snake.some(segment => segment.x === apple.x && segment.y === apple.y)) {
+    generateApple();
+  }
+}
+
+// Função para atualizar o jogo a cada quadro
+function gameLoop() {
+  // Limpa o canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // Move a cobra
+  moveSnake();
+  // Desenha a cobra e a maçã
   drawSnake();
   drawApple();
-  moveSnake();
-  setTimeout(main, 100);
+  // Aguarda 100ms antes de chamar novamente a função
+  setTimeout(gameLoop, 100);
 }
 
-document.addEventListener("keydown", event => {
-  switch (event.keyCode) {
-    case 37:
-      dx = -1;
-      dy = 0;
-      break;
-    case 38:
+// Define as teclas que controlam a direção da cobra
+function setDirection(event) {
+  if (event.type === "keydown") {
+    if (event.code === "ArrowUp") {
       dx = 0;
       dy = -1;
-      break;
-    case 39:
-      dx = 1;
-      dy = 0;
-      break;
-    case 40:
+    }
+    if (event.code === "ArrowDown") {
       dx = 0;
       dy = 1;
-      break;
+    }
+    if (event.code === "ArrowLeft") {
+      dx = -1;
+      dy = 0;
+    }
+    if (event.code === "ArrowRight") {
+      dx = 1;
+      dy = 0;
+    }
   }
-});
-
+}
+document.addEventListener("keydown", setDirection);
+// Inicia o jogo
 generateApple();
-main();
+canvas.setAttribute("tabindex", 0);
+canvas.focus();
+gameLoop();
