@@ -58,6 +58,14 @@ function moveSnake() {
       location.reload();
     }
   }
+
+  // Verifica se a cabeça da cobra colidiu com alguma parte do seu corpo
+  for (let i = 1; i < snake.length; i++) {
+    if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+      alert("Game over! Your score was " + score + ".");
+      location.reload(); // reinicia a página
+    }
+  }
 }
 
 
@@ -87,7 +95,11 @@ function gameLoop() {
     alert("Game over! Your score was " + score + ".");
     location.reload();
   }
-
+  if (snake[0].x < 0 || snake[0].x >= tileCount || snake[0].y < 0 || snake[0].y >= tileCount || snake.slice(1).some(segment => segment.x === snake[0].x && segment.y === snake[0].y)) {
+    // Se a cobra colidiu, exibe o alerta e reinicia a página
+    alert("Game over! Your score was " + score + ".");
+    location.reload(); // reinicia a página
+  }
   // Chama a função novamente no próximo quadro
   requestAnimationFrame(gameLoop)
 }
@@ -102,6 +114,7 @@ function generateApple() {
   if (snake.some(segment => segment.x === apple.x && segment.y === apple.y)) {
     generateApple();
   }
+  
 }
 
 // Função para atualizar o jogo a cada quadro
