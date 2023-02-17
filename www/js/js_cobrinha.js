@@ -18,6 +18,14 @@ let nextDx = 0;
 let nextDy = 0;
 let gameLoopId;
 
+// Obtém o recorde salvo no localStorage ou define como 0 se ainda não existir
+let highScore = localStorage.getItem("snakeHighScore") || 0;
+
+// Obtém o elemento HTML que exibe o recorde
+const highScoreDisplay = document.querySelector("#high-score");
+
+// Exibe o recorde inicial
+highScoreDisplay.textContent = "Recorde: " + highScore;
 
 // Função para desenhar a cobra no canvas
 function drawSnake() {
@@ -60,6 +68,12 @@ function moveSnake() {
       gameOverDiv.style.display = "none";
       resetGame();
     }, 500);
+
+    if (score > highScore) {
+      highScore = score;
+      localStorage.setItem("snakeHighScore", highScore);
+      highScoreDisplay.textContent = "Recorde: " + highScore;
+    }
     
   }
   // Adiciona a nova posição da cabeça da cobra
@@ -87,6 +101,12 @@ function moveSnake() {
         gameOverDiv.style.display = "none";
         resetGame();
       }, 500);
+
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("snakeHighScore", highScore);
+        highScoreDisplay.textContent = "Recorde: " + highScore;
+      }
 
     }
   }
