@@ -51,13 +51,16 @@ function moveSnake() {
   // Verifica se a cabeça da cobra está fora dos limites da grade
   if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
 
-    // Se a cobra estiver fora dos limites, exibe a mensagem de game over e reinicia o jogo
     const message = `Game over! Your score was ${score}.`;
     const gameOverDiv = document.getElementById("game-over");
     gameOverDiv.innerHTML = message;
     gameOverDiv.style.display = "block";
     clearInterval(gameLoopId);
-    setTimeout(resetGame, 2000);
+    setTimeout(() => {
+      gameOverDiv.style.display = "none";
+      resetGame();
+    }, 500);
+    
   }
   // Adiciona a nova posição da cabeça da cobra
   snake.unshift(head);
@@ -80,8 +83,11 @@ function moveSnake() {
       gameOverDiv.innerHTML = message;
       gameOverDiv.style.display = "block";
       clearInterval(gameLoopId);
-      setTimeout(resetGame, 2000);
-      
+      setTimeout(() => {
+        gameOverDiv.style.display = "none";
+        resetGame();
+      }, 500);
+
     }
   }
 
@@ -100,22 +106,16 @@ function generateApple() {
   }
 }
 
-// Função para atualizar o jogo a cada quadro
 function gameLoop() {
-  // Limpa o canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // Move a cobra
   moveSnake();
-  // Desenha a cobra e a maçã
   drawSnake();
   drawApple();
-  // Aguarda 100ms antes de chamar novamente a função
-  setTimeout(gameLoop, 100);
+  setTimeout(gameLoop, 100)
 }
 
 // Define as teclas que controlam a direção da cobra
 function setDirection(event) {
-  document.addEventListener("keydown", function(event) {
     switch (event.key) {
       case "ArrowLeft":
         if (dx !== 1) {
@@ -142,14 +142,21 @@ function setDirection(event) {
         }
         break;
     }
-  });  
-}
+};  
 
 
 function resetGame() {
-  location.reload();
-}
+  snake = [{x: 10, y: 10}];
+  apple = {x: 15, y: 15};
+  dx = 0;
+  dy = 0;
+  nextDx = 0;
+  nextDy = 0;
+  score = 0;
+  scoreDisplay.textContent = "Pontos: " + score;
 
+
+}
 
 document.addEventListener("keydown", setDirection);
 
