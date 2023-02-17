@@ -34,14 +34,14 @@ function endGame() {
     if (document.getElementById("circle").style.backgroundColor === "green") {
         endTime = new Date();
         var reactionTime = (endTime - startTime) / 1000;
-        document.getElementById("result").innerHTML = "Sua reação foi de " + reactionTime + " segundos.";
+        document.getElementById("result").innerHTML = "Seu tempo foi de " + reactionTime + " segundos.";
     
         if (!bestTime || reactionTime < bestTime) {
             localStorage.setItem("bestTime", reactionTime);
             document.getElementById("best-time-value").innerHTML = reactionTime;
         }
     } else {
-        document.getElementById("result").innerHTML = "Você foi rápido demais!";
+        document.getElementById("result").innerHTML = "Muito veloz!";
     }
     
     startTime = null;
@@ -53,5 +53,5 @@ function endGame() {
 }
 
 if (bestTime) {
-  document.getElementById("best-time").innerHTML = "Seu melhor tempo é de " + bestTime + " segundos.";
+  document.getElementById("best-time").innerHTML = "Seu melhor tempo foi de " + bestTime + " segundos.";
 }
