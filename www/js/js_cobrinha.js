@@ -17,6 +17,8 @@ let score = 0;
 let nextDx = 0;
 let nextDy = 0;
 let gameLoopId;
+let isButtonPressed = false;
+
 
 const appleImage = document.getElementById("apple-image");
 appleImage.width = gridSize;
@@ -33,7 +35,6 @@ highScoreDisplay.textContent = "Recorde: " + highScore;
 
 function drawSnake() {
   snake.forEach((segment, index) => {
-    ctx.fillStyle = "#000000";
     ctx.beginPath();
 
     // Define o desenho da cabeça da cobra como um losango
@@ -48,6 +49,29 @@ function drawSnake() {
 
     ctx.fill();
   });
+}
+
+function changeColors() {
+  if (isButtonPressed) {
+    // Restaura as cores padrão
+    document.body.style.backgroundColor = "#efe001";
+    document.getElementById("canvas").style.backgroundColor = "#efe001";
+    document.getElementById("score").style.color = "black";
+    document.getElementById("high-score").style.color = "black";
+    ctx.fillStyle = "#000000";
+  } else {
+    // Define as cores alteradas
+    document.body.style.backgroundColor = "black";
+    document.getElementById("canvas").style.backgroundColor = "black";
+    document.getElementById("score").style.color = "white";
+    document.getElementById("high-score").style.color = "white";
+    ctx.fillStyle = "yellow";
+  }
+
+  drawSnake();
+
+  // Inverte o valor de isButtonPressed
+  isButtonPressed = !isButtonPressed;
 }
 
 
@@ -146,7 +170,11 @@ function gameLoop() {
   moveSnake();
   drawSnake();
   drawApple();
-  setTimeout(gameLoop, 100)
+
+  const button = document.getElementById("button");
+  button.addEventListener("click", changeColors);
+
+  setTimeout(gameLoop, 100);
 }
 
 // Define as teclas que controlam a direção da cobra
