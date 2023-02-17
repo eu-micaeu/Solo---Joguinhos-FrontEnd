@@ -18,6 +18,10 @@ let nextDx = 0;
 let nextDy = 0;
 let gameLoopId;
 
+const appleImage = document.getElementById("apple-image");
+appleImage.width = gridSize;
+appleImage.height = gridSize;
+
 // Obtém o recorde salvo no localStorage ou define como 0 se ainda não existir
 let highScore = localStorage.getItem("snakeHighScore") || 0;
 
@@ -28,16 +32,28 @@ const highScoreDisplay = document.querySelector("#high-score");
 highScoreDisplay.textContent = "Recorde: " + highScore;
 
 function drawSnake() {
-  snake.forEach(segment => {
+  snake.forEach((segment, index) => {
     ctx.fillStyle = "#000000";
-    ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+    ctx.beginPath();
+
+    // Define o desenho da cabeça da cobra como um losango
+    if (index === 0) {
+      ctx.moveTo(segment.x * gridSize, segment.y * gridSize + gridSize / 2);
+      ctx.lineTo(segment.x * gridSize + gridSize / 2, segment.y * gridSize);
+      ctx.lineTo(segment.x * gridSize + gridSize, segment.y * gridSize + gridSize / 2);
+      ctx.lineTo(segment.x * gridSize + gridSize / 2, segment.y * gridSize + gridSize);
+    } else { // Define o desenho do corpo da cobra como bolinhas
+      ctx.arc((segment.x * gridSize) + (gridSize / 2), (segment.y * gridSize) + (gridSize / 2), gridSize / 2, 0, Math.PI * 2);
+    }
+
+    ctx.fill();
   });
 }
 
-// Função para desenhar a maçã no canvas
+
+
 function drawApple() {
-  ctx.fillStyle = "red";
-  ctx.fillRect(apple.x * gridSize, apple.y * gridSize, gridSize, gridSize);
+  ctx.drawImage(appleImage, apple.x * gridSize, apple.y * gridSize, gridSize, gridSize);
 }
 
 // Função para mover a cobra

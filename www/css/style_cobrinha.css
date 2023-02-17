@@ -57,3 +57,8 @@ body {
 #high-score {
   text-align: center;
 }
+
+#apple-image{
+  display: none;
+}
+
