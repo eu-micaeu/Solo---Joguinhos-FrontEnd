@@ -1,11 +1,12 @@
 const squares = document.querySelectorAll('.square');
 let currentPlayer = 'X';
+let isGameActive = true;
 const resultEl = document.querySelector('#result');
 const resetBtn = document.querySelector('#reset-btn');
 
 for (const square of squares) {
   square.addEventListener('click', function() {
-    if (square.textContent === '') {
+    if (isGameActive && square.textContent === '') {
       square.textContent = currentPlayer;
       checkForWinningMove();
       switchPlayer();
@@ -36,6 +37,7 @@ function checkForWinningMove() {
     ) {
       resultEl.textContent = `Player ${currentPlayer} wins!`;
       resultEl.style.color = 'green';
+      isGameActive = false;
       return;
     }
   }
@@ -51,6 +53,7 @@ function checkForWinningMove() {
   if (isDraw) {
     resultEl.textContent = 'Draw!';
     resultEl.style.color = 'gray';
+    isGameActive = false;
   }
 }
 
@@ -60,6 +63,7 @@ function resetGame() {
   }
   currentPlayer = 'X';
   resultEl.textContent = '';
+  isGameActive = true;
 }
 
 resetBtn.addEventListener('click', resetGame);
