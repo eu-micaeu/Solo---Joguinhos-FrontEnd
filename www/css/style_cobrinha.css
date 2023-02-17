@@ -36,3 +36,20 @@ header img {
   object-fit: contain;
   object-position: center;
 }
+
+#game-over {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
+}
+
+#restart-button {
+  display: block;
+  margin: 20px auto;
+}
