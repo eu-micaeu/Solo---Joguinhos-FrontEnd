@@ -1,12 +1,9 @@
-// Obtém o elemento do canvas e o contexto 2D
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-// Obtém o elemento do display de pontuação
 const scoreDisplay = document.getElementById("score");
-
-// Define o tamanho da grade e o número de tiles no canvas
 const gridSize = 20;
 const tileCount = canvas.width / gridSize;
+const lastScoreDisplay = document.querySelector("#last-score");
 
 // Variáveis para armazenar a cobra, a maçã e a pontuação
 let snake = [{x: 10, y: 10}];
@@ -18,6 +15,8 @@ let nextDx = 0;
 let nextDy = 0;
 let gameLoopId;
 let isButtonPressed = false;
+let lastScore = 0;
+
 
 
 const appleImage = document.getElementById("apple-image");
@@ -58,6 +57,7 @@ function changeColors() {
     document.getElementById("canvas").style.backgroundColor = "#efe001";
     document.getElementById("score").style.color = "black";
     document.getElementById("high-score").style.color = "black";
+    document.getElementById("last-score").style.color = "black";
     ctx.fillStyle = "#000000";
   } else {
     // Define as cores alteradas
@@ -65,6 +65,7 @@ function changeColors() {
     document.getElementById("canvas").style.backgroundColor = "black";
     document.getElementById("score").style.color = "white";
     document.getElementById("high-score").style.color = "white";
+    document.getElementById("last-score").style.color = "white";
     ctx.fillStyle = "yellow";
   }
 
@@ -114,6 +115,21 @@ function moveSnake() {
       highScoreDisplay.textContent = "Recorde: " + highScore;
     }
     
+    // Salva a última pontuação
+    lastScore = score;
+  
+    // Atualiza o display da última pontuação
+    lastScoreDisplay.textContent = "Pontos da partida passada: " + lastScore;
+  
+    // Salva a nova pontuação mais alta se for maior que a pontuação anterior
+    if (score > highScore) {
+      highScore = score;
+      localStorage.setItem("snakeHighScore", highScore);
+      highScoreDisplay.textContent = "Recorde: " + highScore;
+    }
+      
+    
+    
   }
   // Adiciona a nova posição da cabeça da cobra
   snake.unshift(head);
@@ -147,6 +163,16 @@ function moveSnake() {
         highScoreDisplay.textContent = "Recorde: " + highScore;
       }
 
+      lastScore = score;
+    
+      lastScoreDisplay.textContent = "Pontos da partida passada:" + lastScore;
+    
+      if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("snakeHighScore", highScore);
+        highScoreDisplay.textContent = "Recorde: " + highScore;
+      }
+        
     }
   }
 
@@ -175,6 +201,7 @@ function gameLoop() {
   button.addEventListener("click", changeColors);
 
   setTimeout(gameLoop, 100);
+
 }
 
 // Define as teclas que controlam a direção da cobra
