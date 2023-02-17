@@ -27,7 +27,6 @@ const highScoreDisplay = document.querySelector("#high-score");
 // Exibe o recorde inicial
 highScoreDisplay.textContent = "Recorde: " + highScore;
 
-// Função para desenhar a cobra no canvas
 function drawSnake() {
   snake.forEach(segment => {
     ctx.fillStyle = "#000000";

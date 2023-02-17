@@ -1,19 +1,126 @@
 // Array de times
-const times = ["flamengo", "palmeiras", "corinthians", "santos", "botafogo"];
+const times = [
+  "flamengo", 
+  "palmeiras", 
+  "corinthians", 
+  "santos", 
+  "botafogo", 
+  "vasco", 
+  "grêmio", 
+  "internacional", 
+  "sport", 
+  "ceará", 
+  "fortaleza", 
+  "goiás", 
+  "cuiabá", 
+  "juventude", 
+  "bahia", 
+  "fluminense", 
+  "américa mineiro", 
+  "chapecoense",
+  "remo",
+  "paysandu",  
+  "bragantino", 
+  "brusque", 
+  "londrina", 
+  "náutico", 
+  "sampaio corrêa", 
+  "vitória", 
+  "ponte preta", 
+  "ferroviário", 
+  "são bento", 
+  "criciúma", 
+  "avaí", 
+  "vilhenense",  
+  "sobradinho",  
+  "tombense", 
+  "bangu", 
+  "abc"
+];
 
 // Array de frutas
-const fruits = ["maçã", "banana", "laranja", "abacaxi", "uva"];
+const fruits = [
+  "maçã", 
+  "banana", 
+  "laranja", 
+  "abacaxi", 
+  "uva", 
+  "goiaba", 
+  "caju", 
+  "manga", 
+  "melancia", 
+  "abacate", 
+  "ameixa", 
+  "kiwi", 
+  "morango", 
+  "limão", 
+  "pera", 
+  "pêssego", 
+  "pitaya", 
+  "pitanga", 
+  "romã", 
+  "carambola", 
+  "jabuticaba", 
+  "jambo", 
+  "laranja-lima", 
+  "noz", 
+  "tangerina", 
+  "amora", 
+  "anona", 
+  "caqui", 
+  "figo",
+];
 
 // Array de objetos
-const objects = ["cadeira", "mesa", "sofá", "abajur", "tapete"];
+const objects = [
+  "cadeira",
+  "mesa",
+  "sofá",
+  "abajur",
+  "tapete",
+  "televisão",
+  "geladeira",
+  "fogão",
+  "liquidificador",
+  "ventilador",
+  "aspirador",
+  "panela",
+  "prato",
+  "copo",
+  "talher",
+  "xícara",
+  "escova",
+  "pente",
+  "toalha",
+  "travesseiro",
+  "cobertor",
+  "almofada",
+  "vaso",
+  "quadro",
+  "sopeira",
+  "saladeira",
+  "fruteira",
+  "cadeado",
+  "chave",
+  "caixa",
+  "carteira",
+  "agenda",
+  "caneta",
+  "lápis",
+  "borracha",
+  "régua",
+  "tesoura",
+  "calculadora",
+  "agenda",
+  "relógio",
+  "pasta",
+  "envelope",
+  "carimbo",
+  "apontador",
+  "grampeador"
+];
 
-// Array de cores
-const colors = ["vermelho", "azul", "amarelo", "verde", "roxo"];
-
-// Array de nomes
-const names = ["fernando", "wellignton", "jesus", "micael", "mariana"];
-
-const randomLists = [times, fruits, objects, colors, names];
+const randomLists = [times, fruits, objects];
       const randomListIndex = Math.floor(Math.random() * randomLists.length);
       const randomList = randomLists[randomListIndex];
       const word = randomList[Math.floor(Math.random() * randomList.length)];
@@ -23,12 +130,8 @@ const randomLists = [times, fruits, objects, colors, names];
         listName = "Times";
       } else if (randomList === fruits) {
         listName = "Frutas";
-      } else if (randomList === names) {
-        listName = "Nomes";
-      } else if (randomList === objects) {
+      }else if (randomList === objects) {
         listName = "Objetos";
-      } else {
-        listName = "Cores";
       }
       const listNameElement = document.getElementById("list-name");
       listNameElement.innerHTML = "Tema: " + listName;
@@ -85,7 +188,7 @@ if (correct.join("") === word) { // se a array de corretas for igual à palavra,
   guessElement.style.color = "green";
 }
 
-if (incorrect.length === 4) { // se a array de incorretas tiver 6 letras, o jogador perdeu
+if (incorrect.length === 6) { // se a array de incorretas tiver 6 letras, o jogador perdeu
   guessElement.innerHTML = "You Lost";
   guessElement.style.color = "red";
   restartGame(); // reinicia o jogo
