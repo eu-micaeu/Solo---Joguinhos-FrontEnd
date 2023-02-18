@@ -1,34 +1,60 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Inclusão de um script de anúncios do Google AdSense -->
+<!DOCTYPE html> 
+
+<html> 
+
+  <head> 
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
-     crossorigin="anonymous"></script>
-    <title>Jogo da Cobrinha</title>
-    <link rel="stylesheet" href="css/style_cobrinha.css">
-    <link rel="icon" href="img/smile-removebg-preview.png">
-  </head>
-  <body>
-    <!-- Cabeçalho principal com o texto centralizado "Jogos" e imagem do ícone -->
-    <header>
-      <a href="index.html">
-        <img src="img/smile-removebg-preview.png" alt="Ícone de sorriso" style="cursor: pointer;">
+     crossorigin="anonymous"></script>  <!-- Inclui o script de anúncios do Google AdSense de forma assíncrona -->
+
+    <title>Jogo da Cobrinha</title>  <!-- Define o título da página -->
+
+    <link rel="stylesheet" href="css/style_cobrinha.css">  <!-- Inclui o arquivo de estilos para a página -->
+
+    <link rel="icon" href="img/smile-removebg-preview.png">  <!-- Define o ícone que será exibido na aba do navegador -->
+
+  </head> 
+
+  <body> 
+
+    <header>  <!-- Início do cabeçalho principal com o texto "Jogos" e o ícone -->
+
+      <a href="index.html">  <!-- Define um link para a página inicial -->
+
+        <img src="img/smile-removebg-preview.png" alt="Ícone de sorriso" style="cursor: pointer;">  <!-- Exibe o ícone com um texto alternativo caso a imagem não possa ser carregada e define o cursor do mouse como ponteiro -->
+
       </a>
-    </header>
-    <div id="container">
-      <button id="button">Dark Theme</button>
-    </div>
-    <img src="img/pngwing.com.png" id="apple-image">
-    <div class="game">
-      <canvas id="canvas" width="400" height="400"></canvas>
-      <div id="score">Pontos: 0</div>
-      <div id="last-score">Pontos da partida passada: 0</div>
-      <div id="high-score">Recorde: 0</div>
-      
-    </div>
-    <div id="game-over" style="display: none;">
-      <p id="message"></p>
-    </div>
-    <script src="js/js_cobrinha.js"></script>
-  </body>
+
+    </header> 
+
+    <div id="container">  <!-- Início de um contêiner para o botão de tema escuro -->
+
+      <button id="button">Tema escuro</button>  <!-- Cria um botão com um identificador para ser utilizado posteriormente em JavaScript -->
+
+    </div> 
+
+    <img src="img/pngwing.com.png" id="apple-image">  <!-- Exibe uma imagem da maçã que a cobrinha deve comer -->
+
+    <div class="game">  <!-- Início da seção do jogo da cobrinha -->
+
+      <canvas id="canvas" width="400" height="400"></canvas>  <!-- Cria um elemento de tela para o jogo com um identificador para ser utilizado posteriormente em JavaScript e define sua largura e altura em pixels -->
+
+      <div id="score">Pontos: 0</div>  <!-- Exibe a pontuação do jogador -->
+
+      <div id="last-score">Pontos da partida passada: 0</div>  <!-- Exibe a pontuação da partida anterior do jogador -->
+
+      <div id="high-score">Recorde: 0</div>  <!-- Exibe o recorde de pontuação do jogo -->
+
+    </div> 
+
+    <div id="game-over" style="display: none;">  <!-- Define uma seção que será exibida quando o jogo acabar com o estilo "display: none" para que ela fique oculta inicialmente -->
+
+      <p id="message"></p>  <!-- Cria um parágrafo com um identificador para ser utilizado posteriormente em JavaScript para exibir uma mensagem de fim de jogo -->
+
+    </div> 
+
+    <script src="js/js_cobrinha.js"></script>  <!-- Inclui o arquivo JavaScript responsável por fazer o jogo funcionar -->
+
+  </body> 
+
 </html>

@@ -6,16 +6,16 @@ body {
   }
   
   .game {
-    margin: 30px auto;
+    margin: 0px auto;
     text-align: center;
   }
   
   canvas {
-    border: 2px solid #333;
+    border: 4px solid #333;
   }
   
   #score {
-    margin-top: 20px;
+    margin-top: 60px;
     font-size: 20px;
     font-weight: bold;
   }
@@ -49,11 +49,6 @@ body {
   text-align: center;
 }
 
-#restart-button {
-  display: block;
-  margin: 20px auto;
-}
-
 #high-score {
   text-align: center;
 }
@@ -69,7 +64,7 @@ body {
 }
 
 #button {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   background-color: #000000;
   color: #fff;
@@ -80,7 +75,7 @@ body {
   transition: all 0.3s ease-in-out;
   margin: 3px;
   position: absolute;
-  top: 18%;
+  top: 82%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin-bottom: 20px;

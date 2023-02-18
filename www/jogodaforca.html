@@ -1,26 +1,46 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<!DOCTYPE html> // declaração do tipo de documento HTML
+
+<html> // início do elemento HTML
+
+  <head> // cabeçalho da página
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
-     crossorigin="anonymous"></script>
-    <title>Jogo da Forca</title>
-    <link rel="stylesheet" href="css/style_forca.css">
-    <link rel="icon" href="img/smile-removebg-preview.png">
+     crossorigin="anonymous"></script> // inclusão de um script de anúncios do Google AdSense
+
+    <title>Jogo da Forca</title> // título da página
+
+    <link rel="stylesheet" href="css/style_forca.css"> // inclusão do arquivo de estilos CSS
+
+    <link rel="icon" href="img/smile-removebg-preview.png"> // inclusão do ícone da página
+
   </head>
-  <body>
-    <!-- Cabeçalho principal com o texto centralizado "Jogos" e imagem do ícone -->
-    <header>
-      <a href="index.html">
-        <img src="img/smile-removebg-preview.png" alt="Ícone de sorriso" style="cursor: pointer;">
+
+  <body> // corpo da página
+
+    <header> // cabeçalho da página
+
+      <a href="index.html"> // link para a página inicial
+
+        <img src="img/smile-removebg-preview.png" alt="Ícone de sorriso" style="cursor: pointer;"> // imagem do ícone
+
       </a>
     </header>
-    <div id="container">
-      <p id="word"></p>
-      <p id="incorrect"></p>
-      <p id="guess">Selecione uma letra:</p>
-      <div id="letter-buttons"></div>
+
+    <div id="container"> // div para conter os elementos do jogo
+
+      <p id="word"></p> // parágrafo para exibir a palavra a ser adivinhada
+
+      <p id="incorrect"></p> // parágrafo para exibir as letras incorretas selecionadas
+
+      <p id="guess">Selecione uma letra:</p> // parágrafo para exibir a mensagem de seleção de letra
+
+      <div id="letter-buttons"></div> // div para conter os botões de seleção de letra
+
     </div>
-    <p id="list-name"></p>
-    <script src="js/js_forca.js"></script>
+
+    <p id="list-name"></p> // parágrafo para exibir o nome da lista de palavras usadas no jogo
+
+    <script src="js/js_forca.js"></script> // inclusão do arquivo de script JavaScript
+    
   </body>
 </html>
