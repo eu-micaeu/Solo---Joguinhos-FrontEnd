@@ -1,3 +1,4 @@
+/* Define o estilo do tabuleiro */
 #tic-tac-toe {
     display: flex;
     flex-wrap: wrap;
@@ -8,81 +9,90 @@
     align-items: center;
     justify-content: center;
     background-color: #efe001; /* adiciona uma cor de fundo */
-  }
+}
 
-  body{
-    background-color: #efe001;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/* define um estilo geral para o corpo da página */
+body{
+  background-color: #efe001;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
+  /* define um estilo para o tabuleiro */
   .board {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px;
   }
   
+  /* define um estilo para as linhas do tabuleiro */
   .row {
-    display: flex;
-    width: 100%;
-    height: 33.33%;
+  display: flex;
+  width: 100%;
+  height: 33.33%;
   }
   
+  /* define um estilo para os quadrados do tabuleiro */
   .square {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 33.33%;
-    height: 100%;
-    font-size: 36px;
-    font-weight: bold;
-    border: 3px solid black;
-    cursor: pointer;
-    user-select: none;
-    text-align: center; /* centraliza o conteúdo */
-    transition: background-color 0.3s ease; /* adiciona transição de cor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33.33%;
+  height: 100%;
+  font-size: 36px;
+  font-weight: bold;
+  border: 3px solid black;
+  cursor: pointer;
+  user-select: none;
+  text-align: center; /* centraliza o conteúdo */
+  transition: background-color 0.3s ease; /* adiciona transição de cor */
   }
   
-  /* adiciona um estilo diferente quando o jogador seleciona um quadrado */
+  /* adiciona um estilo diferente quando o mouse passa sobre um quadrado */
   .square:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
   }
   
+  /* adiciona um estilo para quando um quadrado é selecionado */
   .square.selected {
-    background-color: #c1c1c1;
-  }
-
-  #reset-btn{
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-    margin: 3px;
-  }
-
-  header {
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
+  background-color: #c1c1c1;
   }
   
-  header img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    object-position: center;
+  /* define um estilo para o botão de reset */
+  #reset-btn{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  margin: 3px;
   }
-
+  
+  /* define um estilo para o cabeçalho */
+  header {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  }
+  
+  /* define um estilo para a imagem no cabeçalho */
+  header img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+  }
+  
+  /* define um estilo para o resultado do jogo */
   #result{
-    padding: 10px;
-    display: flex;
+  padding: 10px;
+  display: flex;
   }

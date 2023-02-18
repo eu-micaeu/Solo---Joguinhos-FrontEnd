@@ -1,86 +1,90 @@
-:root {
-    --color-text: #333;
-    --color-accent: rgb(103, 103, 103);
-    --size-base: 16px;
-  }
-
-  body {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 1rem;
-    color: var(--color-text);
-    background-color: #efe001;
+/* Define a fonte, tamanho e cor do texto, além da cor do fundo da página */
+body {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: #efe001;
   }
   
-
+  /* Define a largura máxima e o posicionamento central do elemento #container */
   #container {
-    max-width: 800px;
-    margin: 50px auto;
-    text-align: center;
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
   }
   
+  /* Define o tamanho, espaçamento e estilo do elemento #word */
   #word {
-    font-size: 2.25rem;
-    margin-bottom: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.625rem;
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.625rem;
   }
   
+  /* Define a cor e espaçamento do elemento #incorrect */
   #incorrect {
-    color: red;
-    margin-bottom: 1.25rem;
-    font-size: 1.5rem;
+  color: red;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
   }
   
+  /* Define o tamanho e espaçamento do elemento #guess */
   #guess {
-    font-size: 1.125rem;
-    margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
   }
   
+  /* Define o tamanho, largura, alinhamento e margem do elemento #letter */
   #letter {
-    font-size: 5rem;
-    width: 3.125rem;
-    text-align: center;
-    margin-right: 1.25rem;
+  font-size: 5rem;
+  width: 3.125rem;
+  text-align: center;
+  margin-right: 1.25rem;
   }
-
+  
+  /* Define o espaçamento interno e o estilo dos botões filhos do elemento #letter-buttons */
   #letter-buttons {
-    padding: 10px 0;
+  padding: 10px 0;
   }
-
+  
   #letter-buttons button {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 20px 20px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-    margin: 3px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 20px 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  margin: 3px;
   }
   
+  /* Define a cor de fundo e a sombra dos botões filhos do elemento #letter-buttons quando o mouse passa por cima */
   #letter-buttons button:hover {
-    background-color: #fff200;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
-  }
-
-  #list-name {
-    text-align: center;
-  }
-
-  header {
-    display: flex;
-    justify-content: center;
-    padding: 32px;
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
+  background-color: #fff200;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
   }
   
+  /* Define o alinhamento do elemento #list-name */
+  #list-name {
+  text-align: center;
+  }
+  
+  /* Define o estilo e o posicionamento do cabeçalho */
+  header {
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  }
+  
+  /* Define o tamanho e o alinhamento da imagem dentro do elemento de cabeçalho */
   header img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    object-position: center;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
   }

@@ -1,49 +1,53 @@
+/* Define a fonte utilizada no corpo do documento */
 body {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: #cdbf00;
   margin: 0;
-}
-
-/* Centralizando o conteúdo do cabeçalho */
-header {
+  }
+  
+  /* Define a formatação do cabeçalho */
+  header {
   display: flex;
   justify-content: center;
   padding: 40px;
   width: 50px;
   height: 50px;
   margin: 0 auto;
-}
-
-header img {
+  }
+  
+  /* Define o tamanho e o alinhamento da imagem dentro do cabeçalho */
+  header img {
   width: 50px;
   height: 50px;
   object-fit: contain;
   object-position: center;
-}
-
-.menu {
-  display: flex; 
+  }
+  
+  /* Define o estilo do menu */
+  .menu {
+  display: flex;
   list-style: none;
   padding: 40px;
   justify-content: center;
   align-items: center;
-}
-
-@media only screen and (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-    padding: 20px;
   }
-}
-
-
-ul.menu {
+  
+  /* Define as regras de estilo para dispositivos móveis com tela de até 768px */
+  @media only screen and (max-width: 768px) {
+  .menu {
+  flex-direction: column;
+  padding: 20px;
+  }
+  }
+  
+  /* Define o tamanho e o alinhamento do menu */
+  ul.menu {
   width: 80%;
   margin: 0 auto;
-}
-
-
-.menu a {
+  }
+  
+  /* Define o estilo dos links do menu */
+  .menu a {
   display: block;
   padding: 10px 20px;
   color: rgb(0, 0, 0);
@@ -52,9 +56,9 @@ ul.menu {
   margin: 10px;
   background-color: #fff200;
   border-radius: 10px;
-
-}
-
-.menu a:hover {
+  }
+  
+  /* Define o estilo do link quando o cursor do mouse é colocado em cima */
+  .menu a:hover {
   background-color: #cdbf00;
-}
+  }
