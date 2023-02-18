@@ -1,27 +1,25 @@
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-const scoreDisplay = document.getElementById("score");
-const gridSize = 20;
-const tileCount = canvas.width / gridSize;
-const lastScoreDisplay = document.querySelector("#last-score");
+const canvas = document.getElementById("canvas"); // Obtém a referência do elemento canvas no HTML
+const ctx = canvas.getContext("2d"); // Define o contexto de desenho 2D do canvas
+const scoreDisplay = document.getElementById("score"); // Obtém a referência do elemento de pontuação no HTML
+const gridSize = 20; // Define o tamanho de cada célula da grade em pixels
+const tileCount = canvas.width / gridSize; // Define a quantidade de células na grade
+const lastScoreDisplay = document.querySelector("#last-score"); // Obtém a referência do elemento da última pontuação no HTML
 
 // Variáveis para armazenar a cobra, a maçã e a pontuação
-let snake = [{x: 10, y: 10}];
-let apple = {x: 15, y: 15};
-let dx = 0;
-let dy = 0;
-let score = 0;
-let nextDx = 0;
-let nextDy = 0;
-let gameLoopId;
-let isButtonPressed = false;
-let lastScore = 0;
+let snake = [{x: 10, y: 10}]; // Define a posição inicial da cobra
+let apple = {x: 15, y: 15}; // Define a posição inicial da maçã
+let dx = 0; // Define o deslocamento horizontal da cobra
+let dy = 0; // Define o deslocamento vertical da cobra
+let score = 0; // Define a pontuação inicial
+let nextDx = 0; // Define o próximo deslocamento horizontal da cobra
+let nextDy = 0; // Define o próximo deslocamento vertical da cobra
+let gameLoopId; // Define o ID do loop do jogo
+let isButtonPressed = false; // Define se o botão de cores foi pressionado
+let lastScore = 0; // Define a última pontuação
 
-
-
-const appleImage = document.getElementById("apple-image");
-appleImage.width = gridSize;
-appleImage.height = gridSize;
+const appleImage = document.getElementById("apple-image"); // Obtém a referência da imagem da maçã no HTML
+appleImage.width = gridSize; // Define a largura da imagem da maçã para o tamanho da célula da grade
+appleImage.height = gridSize; // Define a altura da imagem da maçã para o tamanho da célula da grade
 
 // Obtém o recorde salvo no localStorage ou define como 0 se ainda não existir
 let highScore = localStorage.getItem("snakeHighScore") || 0;
@@ -51,8 +49,9 @@ function drawSnake() {
 }
 
 function changeColors() {
+
   if (isButtonPressed) {
-    // Restaura as cores padrão
+    // Se o botão estiver pressionado, restaura as cores padrão.
     document.body.style.backgroundColor = "#efe001";
     document.getElementById("canvas").style.backgroundColor = "#efe001";
     document.getElementById("score").style.color = "black";
@@ -60,7 +59,7 @@ function changeColors() {
     document.getElementById("last-score").style.color = "black";
     ctx.fillStyle = "#000000";
   } else {
-    // Define as cores alteradas
+    // Se o botão não estiver pressionado, define as cores alteradas.
     document.body.style.backgroundColor = "black";
     document.getElementById("canvas").style.backgroundColor = "black";
     document.getElementById("score").style.color = "white";
@@ -70,13 +69,11 @@ function changeColors() {
   }
 
   drawSnake();
-
   // Inverte o valor de isButtonPressed
   isButtonPressed = !isButtonPressed;
 }
 
-
-
+// Função para desenhar a maçã
 function drawApple() {
   ctx.drawImage(appleImage, apple.x * gridSize, apple.y * gridSize, gridSize, gridSize);
 }
@@ -92,7 +89,6 @@ function moveSnake() {
     dx = snake[0].dx;
     dy = snake[0].dy;
   }
-
   // Define a cabeça da cobra como a primeira posição + dx e dy
   const head = {x: snake[0].x + dx, y: snake[0].y + dy};
 
@@ -128,11 +124,10 @@ function moveSnake() {
       highScoreDisplay.textContent = "Recorde: " + highScore;
     }
       
-    
-    
   }
   // Adiciona a nova posição da cabeça da cobra
   snake.unshift(head);
+  
   // Verifica se a cobra colidiu com uma maçã
   if (head.x === apple.x && head.y === apple.y) {
     // Se a cobra colidiu, aumenta a pontuação, gera uma nova maçã e atualiza o display de pontuação
@@ -143,7 +138,6 @@ function moveSnake() {
     // Se a cobra não colidiu, remove a última posição do seu corpo
     snake.pop();
   }
-  
   // Verifica se a cabeça da cobra colidiu com alguma parte do seu corpo
   for (let i = 1; i < snake.length; i++) {
     if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
@@ -172,12 +166,9 @@ function moveSnake() {
         localStorage.setItem("snakeHighScore", highScore);
         highScoreDisplay.textContent = "Recorde: " + highScore;
       }
-        
     }
   }
-
 }
-
 
 // Função para gerar uma nova maçã em uma posição aleatória na grade
 function generateApple() {
@@ -234,7 +225,6 @@ function setDirection(event) {
     }
 };  
 
-
 function resetGame() {
   snake = [{x: 10, y: 10}];
   apple = {x: 15, y: 15};
@@ -247,9 +237,7 @@ function resetGame() {
 
 
 }
-
 document.addEventListener("keydown", setDirection);
-
 // Inicia o jogo
 generateApple();
 canvas.setAttribute("tabindex", 0);
