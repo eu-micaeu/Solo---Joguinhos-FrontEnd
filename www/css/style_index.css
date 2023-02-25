@@ -2,14 +2,18 @@
 body {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: #cdbf00;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0px;
 }
   
 /* Define a formatação do cabeçalho */
 header {
   display: flex;
   justify-content: center;
-  padding: 40px;
+  padding: 0px;
   width: 50px;
   height: 50px;
   margin: 0 auto;
@@ -19,7 +23,6 @@ header {
 header img {
   width: 50px;
   height: 50px;
-  object-fit: contain;
   object-position: center;
 }
   
@@ -27,7 +30,7 @@ header img {
 .menu {
   display: flex;
   list-style: none;
-  padding: 40px;
+  padding: 20px;
   justify-content: center;
   align-items: center;
 }
@@ -71,4 +74,9 @@ footer {
 footer p {
   font-size: 18px;
   color: #000000;
+}
+
+.menu img{
+  width: 100px;
+  margin: 10px 5px;
 }
