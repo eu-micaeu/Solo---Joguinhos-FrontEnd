@@ -51,6 +51,7 @@ ul.menu {
   margin: 10px;
   background-color: #fff200;
   border-radius: 10px;
+  border: #000000 2px solid;
 }
   
   /* Define o estilo do link quando o cursor do mouse é colocado em cima */
@@ -79,4 +80,20 @@ footer p {
 .menu img{
   width: 100px;
   margin: 10px 5px;
+}
+
+.minhaft{
+  margin: 20px 0 0px;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  border: #000000 2px solid;
+}
+
+.meutxt{
+  margin-top: 30px;
+  padding: 10px;
+  border: #000000 2px solid;
+  border-radius: 10px;
+  font-size: 1.1rem;
 }
