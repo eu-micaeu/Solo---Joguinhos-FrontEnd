@@ -55,12 +55,17 @@
   
 /* Define a formatação do cabeçalho */
 header {
-	padding: 0px;
-	width: 50px;
+	display: flex;
+	justify-content: center; /* centraliza horizontalmente */
+	align-items: center; /* centraliza verticalmente */
+	position: fixed; /* fixa o cabeçalho na página */
+	top: 4.5%; /* posiciona o cabeçalho no topo */
+	left: 0; /* posiciona o cabeçalho à esquerda */
+	width: 100%; /* define a largura total da página */
 	height: 50px;
-	margin-bottom: 39%;
-	position: absolute;
+	z-index: 1000; /* define a ordem de empilhamento (importante para evitar que o cabeçalho fique por baixo de outros elementos da página) */
   }
+  
 	
   /* Define o tamanho e o alinhamento da imagem dentro do cabeçalho */
   header img {
