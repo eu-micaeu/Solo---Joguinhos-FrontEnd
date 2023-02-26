@@ -11,7 +11,13 @@ const cardsArray = [
 	{ id: 9, value: 'C' },
 	{ id: 10, value: 'D' },
 	{ id: 11, value: 'E' },
-	{ id: 12, value: 'F' }
+    { id: 12, value: 'F' },
+    { id: 11, value: 'G' },
+    { id: 12, value: 'G' },
+    { id: 11, value: 'H' },
+    { id: 12, value: 'H' },
+    { id: 11, value: 'I' },
+	{ id: 12, value: 'I' }
 ];
 
 // Embaralha as cartas
