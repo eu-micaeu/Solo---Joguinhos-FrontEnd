@@ -2,7 +2,20 @@ const squares = document.querySelectorAll('.square');
 let currentPlayer = 'X';
 let isGameActive = true;
 const resultEl = document.querySelector('#result');
-const resetBtn = document.querySelector('#reset-btn');
+const humanBtn = document.querySelector('#human-btn');
+const botBtn = document.querySelector('#bot-btn');
+let isAgainstBot = false;
+const botPlayer = 'O';
+
+humanBtn.addEventListener('click', function() {
+  isAgainstBot = false;
+  resetGame();
+});
+
+botBtn.addEventListener('click', function() {
+  isAgainstBot = true;
+  resetGame();
+});
 
 for (const square of squares) {
   square.addEventListener('click', function() {
@@ -10,6 +23,9 @@ for (const square of squares) {
       square.textContent = currentPlayer;
       checkForWinningMove();
       switchPlayer();
+      if (isAgainstBot && currentPlayer === botPlayer) {
+        makeBotMove();
+      }
     }
   });
 }
@@ -19,7 +35,8 @@ function switchPlayer() {
 }
 
 function checkForWinningMove() {
-  const winningCombinations = [    [0, 1, 2],
+  const winningCombinations = [
+    [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
     [0, 3, 6],
@@ -37,6 +54,7 @@ function checkForWinningMove() {
     ) {
       resultEl.textContent = `Player ${currentPlayer} wins!`;
       resultEl.style.color = 'green';
+      resultEl.style.fontSize = '2rem';
       isGameActive = false;
       return;
     }
@@ -53,8 +71,25 @@ function checkForWinningMove() {
   if (isDraw) {
     resultEl.textContent = 'Draw!';
     resultEl.style.color = 'gray';
+    resultEl.style.fontSize = '2rem';
     isGameActive = false;
   }
+}
+
+function makeBotMove() {
+  let availableSquares = [];
+  for (const square of squares) {
+    if (square.textContent === '') {
+      availableSquares.push(square);
+    }
+  }
+  if (availableSquares.length === 0) {
+    return;
+  }
+  const randomIndex = Math.floor(Math.random() * availableSquares.length);
+  availableSquares[randomIndex].textContent = botPlayer;
+  checkForWinningMove();
+  switchPlayer();
 }
 
 function resetGame() {
@@ -64,6 +99,8 @@ function resetGame() {
   currentPlayer = 'X';
   resultEl.textContent = '';
   isGameActive = true;
+  if (isAgainstBot && currentPlayer === botPlayer) {
+    makeBotMove();
+  }
 }
 
-resetBtn.addEventListener('click', resetGame);
