@@ -17,7 +17,9 @@ const cardsArray = [
     { id: 11, value: 'H' },
     { id: 12, value: 'H' },
     { id: 11, value: 'I' },
-	{ id: 12, value: 'I' }
+    { id: 12, value: 'I' },
+    { id: 11, value: 'J' },
+	{ id: 12, value: 'J' }
 ];
 
 // Embaralha as cartas

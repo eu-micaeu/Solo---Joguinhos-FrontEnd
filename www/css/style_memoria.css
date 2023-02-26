@@ -31,11 +31,11 @@
 	cursor: pointer;
 	font-size: 2em;
 	font-weight: bold;
-	height: 100px;
-	margin: 9px 16.5px;
+	height: 80px;
 	text-align: center;
-	width: 100px;
-	padding: 27px;
+	margin: 5px 9px;
+	width: 80px;
+	padding: 20px;
   }
   
   .flipped {
