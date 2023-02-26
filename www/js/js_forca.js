@@ -98,20 +98,20 @@ const objects = [
 ];
 
 const randomLists = [times, fruits, objects];
-      const randomListIndex = Math.floor(Math.random() * randomLists.length);
-      const randomList = randomLists[randomListIndex];
-      const word = randomList[Math.floor(Math.random() * randomList.length)];
+const randomListIndex = Math.floor(Math.random() * randomLists.length);
+const randomList = randomLists[randomListIndex];
+const word = randomList[Math.floor(Math.random() * randomList.length)];
 
-      let listName;
-      if (randomList === times) {
-        listName = "Times";
-      } else if (randomList === fruits) {
-        listName = "Frutas";
-      }else if (randomList === objects) {
-        listName = "Objetos";
-      }
-      const listNameElement = document.getElementById("list-name");
-      listNameElement.innerHTML = "Tema: " + listName;
+let listName;
+if (randomList === times) {
+listName = "Times";
+} else if (randomList === fruits) {
+listName = "Frutas";
+}else if (randomList === objects) {
+listName = "Objetos";
+}
+const listNameElement = document.getElementById("list-name");
+listNameElement.innerHTML = "Tema: " + listName;
 
 // Converte a palavra em uma array de letras
 const wordArray = word.toLowerCase().split("");
@@ -128,13 +128,13 @@ let correct = [];
 
 // Cria um botão para cada letra do alfabeto
 for (let i = 97; i <= 122; i++) {
-  const letter = String.fromCharCode(i);
-  const button = document.createElement("button");
-  button.textContent = letter;
-  button.addEventListener("click", function() {
-  handleGuess(letter);
-  });
-  letterButtonsContainer.appendChild(button);
+const letter = String.fromCharCode(i);
+const button = document.createElement("button");
+button.textContent = letter;
+button.addEventListener("click", function() {
+handleGuess(letter);
+});
+letterButtonsContainer.appendChild(button);
 }
 
 // Cria uma array de underlines com o mesmo tamanho da palavra escolhida
@@ -145,15 +145,28 @@ correct.push("_");
 // Exibe a array de underlines na tela
 wordElement.innerHTML = correct.join(" ");
 
+// ** Cria uma variável para armazenar o número máximo de tentativas e o número atual de tentativas restantes
+const maxAttempts = 6;
+let attempts = maxAttempts;
+
+// ** Exibe o número atual de tentativas restantes na tela
+const attemptsElement = document.getElementById("attempts");
+attemptsElement.innerHTML = "Tentativas restantes: " + attempts;
+
 // Função chamada ao clicar em um botão de letra
 function handleGuess(letter) {
-  if (wordArray.indexOf(letter) === -1) { // letra incorreta
-  incorrect.push(letter); // adiciona a letra à array de incorretas
-  incorrectElement.innerHTML = "Incorretas: " + incorrect.join(" "); // exibe as letras incorretas na tela
+if (wordArray.indexOf(letter) === -1) { // letra incorreta
+incorrect.push(letter); // adiciona a letra à array de incorretas
+incorrectElement.innerHTML = "Incorretas: " + incorrect.join(" "); // exibe as letras incorretas na tela
+
+// ** Diminui o número de tentativas restantes e exibe na tela
+attempts--;
+attemptsElement.innerHTML = "Tentativas restantes: " + attempts;
+
 } else { // letra correta
-  for (let i = 0; i < wordArray.length; i++) {
-  if (wordArray[i] === letter) {
-  correct[i] = word[i]; // atualiza a array de corretas com a letra correta na posição correta
+for (let i = 0; i < wordArray.length; i++) {
+if (wordArray[i] === letter) {
+correct[i] = word[i]; // atualiza a array de corretas com a letra correta na posição correta
 }
 }
 wordElement.innerHTML = correct.join(" "); // exibe a nova array de corretas na tela
@@ -163,12 +176,24 @@ wordElement.innerHTML = correct.join(" "); // exibe a nova array de corretas na 
 if (correct.join("") === word) { // se a array de corretas for igual à palavra, o jogador venceu
   guessElement.innerHTML = "You Win!";
   guessElement.style.color = "green";
+  // Aguarda 6 segundos antes de reiniciar o jogo
+  setTimeout(function() {
+    restartGame(); // reinicia o jogo
+  }, 3000);
 }
 
 if (incorrect.length === 6) { // se a array de incorretas tiver 6 letras, o jogador perdeu
   guessElement.innerHTML = "You Lost";
   guessElement.style.color = "red";
-  restartGame(); // reinicia o jogo
+  // Exibe a palavra escolhida na tela
+  const wordElement = document.getElementById("word");
+  wordElement.innerHTML = word;
+
+  // Aguarda 6 segundos antes de reiniciar o jogo
+  setTimeout(function() {
+    restartGame(); // reinicia o jogo
+  }, 3000);
+
   }
 }
 
