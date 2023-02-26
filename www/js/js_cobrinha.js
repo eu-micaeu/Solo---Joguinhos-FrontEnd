@@ -48,30 +48,6 @@ function drawSnake() {
   });
 }
 
-function changeColors() {
-
-  if (isButtonPressed) {
-    // Se o botão estiver pressionado, restaura as cores padrão.
-    document.body.style.backgroundColor = "#efe001";
-    document.getElementById("canvas").style.backgroundColor = "#efe001";
-    document.getElementById("score").style.color = "black";
-    document.getElementById("high-score").style.color = "black";
-    document.getElementById("last-score").style.color = "black";
-    ctx.fillStyle = "#000000";
-  } else {
-    // Se o botão não estiver pressionado, define as cores alteradas.
-    document.body.style.backgroundColor = "black";
-    document.getElementById("canvas").style.backgroundColor = "black";
-    document.getElementById("score").style.color = "white";
-    document.getElementById("high-score").style.color = "white";
-    document.getElementById("last-score").style.color = "white";
-    ctx.fillStyle = "yellow";
-  }
-
-  drawSnake();
-  // Inverte o valor de isButtonPressed
-  isButtonPressed = !isButtonPressed;
-}
 
 // Função para desenhar a maçã
 function drawApple() {
@@ -189,7 +165,6 @@ function gameLoop() {
   drawApple();
 
   const button = document.getElementById("button");
-  button.addEventListener("click", changeColors);
 
   setTimeout(gameLoop, 100);
 

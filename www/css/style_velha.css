@@ -8,12 +8,12 @@
     border: 1px solid rgb(0, 0, 0);
     align-items: center;
     justify-content: center;
-    background-color: #efe001; /* adiciona uma cor de fundo */
+    background-color: #c2b502; /* adiciona uma cor de fundo */
 }
 
 /* define um estilo geral para o corpo da página */
 body{
-  background-color: #efe001;
+  background-color: #c2b502;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
   

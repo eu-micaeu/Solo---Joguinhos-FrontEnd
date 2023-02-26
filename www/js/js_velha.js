@@ -15,7 +15,11 @@ humanBtn.addEventListener('click', function() {
 botBtn.addEventListener('click', function() {
   isAgainstBot = true;
   resetGame();
+  if (currentPlayer === botPlayer) {
+    makeBotMove();
+  }
 });
+
 
 for (const square of squares) {
   square.addEventListener('click', function() {
@@ -77,6 +81,9 @@ function checkForWinningMove() {
 }
 
 function makeBotMove() {
+  if (!isGameActive) {
+    return;
+  }
   let availableSquares = [];
   for (const square of squares) {
     if (square.textContent === '') {
@@ -91,6 +98,7 @@ function makeBotMove() {
   checkForWinningMove();
   switchPlayer();
 }
+
 
 function resetGame() {
   for (const square of squares) {

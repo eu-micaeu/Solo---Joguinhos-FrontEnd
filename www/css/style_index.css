@@ -1,7 +1,7 @@
 /* Define a fonte utilizada no corpo do documento */
 body {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: #cdbf00;
+  background-color: #c2b502;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +55,7 @@ ul.menu {
   
   /* Define o estilo do link quando o cursor do mouse é colocado em cima */
 .menu a:hover {
-  background-color: #cdbf00;
+  background-color: #c2b502;
 }
 
 /* Define o estilo do footer */
