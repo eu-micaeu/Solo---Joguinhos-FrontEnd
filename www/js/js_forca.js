@@ -18,7 +18,6 @@ const times = [
   "bragantino", 
   "brusque", 
   "londrina", 
-  "ponte preta", 
   "vilhenense",  
   "sobradinho",  
   "tombense", 
