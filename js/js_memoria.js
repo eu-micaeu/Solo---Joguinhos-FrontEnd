@@ -93,7 +93,7 @@ function flipCard(event) {
                     // Esconde a letra das cartas viradas incorretamente
                     card1.querySelector('.card-value').classList.remove('visible');
                     card2.querySelector('.card-value').classList.remove('visible');
-                }, 1000);
+                }, 0500);
             }
             checkIfWon(); // Adiciona a chamada para a função checkIfWon aqui
         }
