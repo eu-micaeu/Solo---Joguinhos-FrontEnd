@@ -9,6 +9,8 @@
     align-items: center;
     justify-content: center;
     background-color: #c2b502; /* adiciona uma cor de fundo */
+    border-radius: 5px;
+
 }
 
 /* define um estilo geral para o corpo da página */
@@ -46,6 +48,7 @@ body{
   user-select: none;
   text-align: center; /* centraliza o conteúdo */
   transition: background-color 0.3s ease; /* adiciona transição de cor */
+  border-radius: 5px;
 }
   
 .square:hover {
@@ -63,7 +66,9 @@ body{
 
 #result {
   text-align: center;
-  padding: 20px;
+  border-radius: 5px;
+  position: fixed;
+
 }
 
 #human-btn, #bot-btn {
