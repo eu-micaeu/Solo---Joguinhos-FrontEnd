@@ -173,25 +173,25 @@ function gameLoop() {
 // Define as teclas que controlam a direção da cobra
 function setDirection(event) {
     switch (event.key) {
-      case "ArrowLeft":
+      case "a":
         if (dx !== 1) {
           nextDx = -1;
           nextDy = 0;
         }
         break;
-      case "ArrowRight":
+      case "d":
         if (dx !== -1) {
           nextDx = 1;
           nextDy = 0;
         }
         break;
-      case "ArrowUp":
+      case "w":
         if (dy !== 1) {
           nextDx = 0;
           nextDy = -1;
         }
         break;
-      case "ArrowDown":
+      case "s":
         if (dy !== -1) {
           nextDx = 0;
           nextDy = 1;
@@ -212,6 +212,7 @@ function resetGame() {
 
 
 }
+
 document.addEventListener("keydown", setDirection);
 // Inicia o jogo
 generateApple();
